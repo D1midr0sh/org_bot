@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  org-bot:
+    build: .
+    container_name: org-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    command: ["python", "-m", "src.bot"]
